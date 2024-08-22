@@ -33,13 +33,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (!empty($_FILES['foto']['name']) || !empty($_FILES['audio']['name'])) {
             $uploadDir = 'files/';
 
-            if (!is_dir($uploadDir)) {
-                if (!mkdir($uploadDir, 0777, true)) {
-                    echo "Error al crear el directorio de subida.";
-                    exit();
-                }
-            }
-
             if (!empty($_FILES['foto']['name'])) {
                 $fotoFile = $_FILES['foto'];
                 $fotoFileName = uniqid() . '-' . basename($fotoFile['name']);
